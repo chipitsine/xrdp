@@ -12,7 +12,7 @@ jobs:
         - uses: actions/checkout@master
         - name: install prerequisites
           run: |
-            dnf install -y which autoconf automake libtool openssl-devel pam-devel libX11-devel libXfixes-devel
+            dnf install -y which autoconf automake libtool openssl-devel pam-devel libX11-devel libXfixes-devel libXrandr-devel
             dnf -y groupinstall "Development Tools"
         - name: configure
           run: |
