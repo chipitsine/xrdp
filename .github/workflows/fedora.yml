@@ -10,11 +10,16 @@ jobs:
         image: fedora:rawhide
       steps:
         - uses: actions/checkout@master
-        - name: gcc10 static analyzer
+        - name: install prerequisites
           run: |
-            dnf install -y which autoconf automake libtool openssl-devel pam-devel
+            dnf install -y which autoconf automake libtool openssl-devel pam-devel libX11-devel
             dnf -y groupinstall "Development Tools"
+        - name: configure
+          run: |
             ./bootstrap
             export CFLAGS="-fanalyzer"
             ./configure
+        - name: gcc10 static analyzer
+          run: |
             make
+
