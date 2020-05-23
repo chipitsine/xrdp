@@ -12,7 +12,7 @@ jobs:
         - uses: actions/checkout@master
         - name: gcc10 static analyzer
           run: |
-            dnf install -y which autoconf
+            dnf install -y which autoconf automake
             dnf -y groupinstall "Development Tools"
             ./bootstrap
             export CFLAGS="-fanalyzer"
