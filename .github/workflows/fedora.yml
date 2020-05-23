@@ -13,6 +13,7 @@ jobs:
         - name: gcc10 static analyzer
           run: |
             dnf install -y which
+            dnf -y groupinstall "Development Tools"
             ./bootstrap
             export CFLAGS="-fanalyzer"
             ./configure
